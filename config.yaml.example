@@ -1,0 +1,44 @@
+server:
+  env: "development"
+  port: "9095"
+  log:
+    level: "INFO"
+    sentry:
+      #dsn: ""
+  user:
+    min_password_length: 8
+    activation:
+      # don't suffixed with /
+      base_url: ""
+
+worker:
+  concurrency: 5
+  task:
+    mailing:
+      max_retry: 10,
+      timeout_seconds: 10
+    mail_updating:
+      max_retry: 5
+      timeout_seconds: 10
+
+sendinblue:
+  api_key: ""
+  sender:
+    email: ""
+    name: ""
+
+postgres:
+  host: ""
+  db: ""
+  user: ""
+  pw: ""
+  port: "5432"
+  ssl_mode: ""
+
+redis:
+  addr: ""
+  password: ""
+  db: 5
+  min: 1
+  max: 5
+  worker_broker_host: ""
